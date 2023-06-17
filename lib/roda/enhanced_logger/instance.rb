@@ -75,7 +75,7 @@ class Roda
           status: status,
           verb: request.request_method,
           path: request.path,
-          ip: request.ip,
+          ip: (request.forwarded_for || request.ip),
           remaining_path: request.remaining_path,
           handler: handler,
           params: request.params
