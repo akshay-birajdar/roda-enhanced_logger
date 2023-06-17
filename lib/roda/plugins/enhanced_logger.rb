@@ -49,6 +49,7 @@ class Roda
           config.handlers = options[:handlers]
           config.output = options.fetch(:output) { $stdout }
           config.metadata.push(:time, :date) if options[:log_time]
+          config.time_format = "%T.%3N %z"
           config.filters.data = options[:filtered_params].map(&:to_s)
           config.filters.mask = "<FILTERED>"
         }
